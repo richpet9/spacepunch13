@@ -67,10 +67,14 @@ switch ($serverdata["gamestate"]) {
       $shuttle_mode = "ESCAPING";
       $shuttle_time = formatTime($serverdata["shuttle_timer"], false);
       $shuttle_color = "green";
-    }else if ($serverdata["shuttle_mode"] == "recall") {
+    } else if ($serverdata["shuttle_mode"] == "recall") {
       $shuttle_mode = "RECALLED";
       $shuttle_time = formatTime($serverdata["shuttle_timer"], false);
       $shuttle_color = "blue";
+    } else if ($serverdata["shuttle_mode"] == "error") {
+      $shuttle_mode = "ERROR";
+      $shuttle_time = "--:--";
+      $shuttle_color = "red";
     }
     break;
   case 4:
@@ -94,7 +98,7 @@ $output["shuttleTime"] = $shuttle_time;
 $output["players"] = $players;
 $output["map"] = $map;
 
-//$output["raw"] = $variable_value_array;
+$output["raw"] = $variable_value_array;
 
 //This file is AJAX'd so echo out some text
 //Fun fact: there's no method check, so go to 

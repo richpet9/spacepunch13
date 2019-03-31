@@ -1,13 +1,14 @@
 <?php
  // CODE COURTESY OF /tg/station's WEBSITE
 // THANKS FOR OPEN SOURCING EVERYTHING
-// THIS ONE IS MODIFIED SINCE WE ONLY HAVE ONE SERVER,
+// THIS ONE IS SLIGHTLY MODIFIED SINCE WE ONLY HAVE ONE SERVER,
 // AND DO THINGS ON REFRESH INSTEAD OF SERVER JOBS.
 $error = false;
 
 $server_info = array();
 $server_info["name"] = "Spacepunch Station";
 $server_info["addr"] = "spacepunch.org";
+//Uncomment when on local game machine
 //$server_info["addr"] = "localhost";
 $server_info["port"] = 1337;
 

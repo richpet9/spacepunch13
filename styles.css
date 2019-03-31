@@ -77,6 +77,7 @@ header {
   width: 128px;
   margin-right: 16px;
 }
+
 main {
   width: 55%;
   margin: 0 auto;
@@ -224,6 +225,7 @@ main {
 #forum-link:hover::after {
   opacity: 0 !important;
 }
+/* * * * * * */
 
 #discord-link {
   background: #2b72dd;

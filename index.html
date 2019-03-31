@@ -155,6 +155,8 @@
 
             $('#players').html(stats.players);
             $('#map').html(stats.map);
+
+            console.log(stats.raw);
           })
           .fail(function() {
             $('main').html('<h1>Error connecting to server.</h1><h2 class="red">Try to refresh the page. If that doesn\'t help, contact somebody.</h2>');
