@@ -1,0 +1,347 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: #303030;
+  color: white;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+a,
+a:visited,
+a:active,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  border-bottom: 1px solid white;
+}
+
+a:hover,
+a:focus {
+  color: #cf505c;
+  border: none;
+}
+
+strong {
+  font-weight: 800;
+}
+
+.green {
+  color: #08b556 !important;
+}
+
+.red {
+  color: #cf505c !important;
+}
+
+.blue {
+  color: #2b72dd !important;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+}
+
+#banner {
+  display: inline-block;
+  font-size: 84px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  margin-top: -10px;
+  margin-bottom: 48px;
+  text-shadow: 3px 3px 0px #181818, 4px 4px 0px #181818, 5px 5px 0px #181818, 6px 6px 0px #181818, 7px 7px 0px #181818, 8px 8px 0px #181818, 9px 9px 0px #181818;
+}
+
+#emblem {
+  position: relative;
+  top: 40px;
+  width: 128px;
+  margin-right: 16px;
+}
+main {
+  width: 55%;
+  margin: 0 auto;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.flex-container .col {
+  font-size: 18px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.flex-container .col.stat-col {
+  width: 33.33%;
+  padding: 32px 0;
+  background: #232323;
+}
+
+.flex-container .col .row {
+  margin-bottom: 46px;
+}
+
+.flex-container .col .row:last-child {
+  margin-bottom: 0;
+}
+
+#stat-banner {
+  background: #232323;
+}
+
+.stat-label {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.stat {
+  font-weight: 300;
+  font-size: 42px;
+  white-space: normal;
+}
+
+.stat.map {
+  font-size: 36px;
+}
+
+#refresh-button {
+  text-align: right;
+  font-size: 12px;
+  padding: 6px 24px;
+  opacity: 0.85;
+}
+
+#refresh-button a {
+  border: none;
+}
+
+#join-button {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+#join-button a {
+  display: inline-block;
+  font-size: 42px;
+  padding: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  background: white;
+}
+
+#join-button a:hover,
+#join-button a:focus {
+  background: #cf505c;
+  color: white;
+}
+
+#url-ez-read {
+  font-size: 12px;
+  position: relative;
+  top: -2px;
+  opacity: 0.65;
+}
+
+#links-container {
+  margin-bottom: 50px;
+  background: #232323;
+  padding: 18px;
+}
+
+#links-container .col {
+  margin: 18px 18px;
+  width: calc(12.5% - 18px);
+  flex-grow: 1;
+  position: relative;
+}
+
+#links-container .col a {
+  display: block;
+  border-bottom: none;
+  font-size: 18px;
+  width: 100%;
+  padding: 18px 0;
+  position: relative;
+  z-index: 4;
+}
+
+#links-container .col::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  background: black;
+  opacity: 0;
+}
+
+#links-container .col a:hover {
+  color: white;
+}
+
+#links-container .col:hover::after {
+  opacity: 0.16;
+}
+
+#forum-link {
+  background: #303030;
+}
+
+/* These are here bc forums is error */
+#forum-link a {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+#forum-link:hover::after {
+  opacity: 0 !important;
+}
+
+#discord-link {
+  background: #2b72dd;
+}
+
+#wiki-link {
+  background: #08b556;
+}
+
+#dev-link {
+  background: #cf505c;
+}
+
+#stats-link {
+  background: #2b72dd;
+}
+
+.tooltip-container a {
+  position: relative;
+  z-index: 1;
+}
+
+.tooltip {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  background: white;
+  color: #181818;
+  padding: 4px 8px;
+  font-size: 14px;
+  left: 0;
+  opacity: 0;
+  transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  z-index: 0;
+}
+
+.tooltip:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(100%);
+  left: calc(50% - 10px);
+  border-top: 5px solid white;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.tooltip-container a:hover ~ .tooltip {
+  opacity: 0.9;
+  top: -36px;
+}
+
+@media only screen and (max-width: 1100px) {
+  main {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 855px) {
+  main {
+    width: 97.5%;
+  }
+
+  #banner {
+    font-size: 58px;
+    margin-bottom: 16px;
+  }
+
+  #emblem {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+
+  .flex-container .col.stat-col {
+    width: 100%;
+    display: flex;
+  }
+
+  .flex-container .col.stat-col .row {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .stat-label {
+    font-size: 22px;
+  }
+
+  .stat {
+    font-size: 38px;
+  }
+
+  #links-container .col {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  html {
+    overflow-x: hidden;
+  }
+  main {
+    width: 100%;
+  }
+
+  #banner {
+    font-size: 40px;
+  }
+
+  #join-button a {
+    font-size: 28px;
+  }
+
+  .tooltip {
+    display: none !important;
+  }
+}

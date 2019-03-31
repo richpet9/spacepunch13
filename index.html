@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,900" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="fp-13-128.png?v2.0" />
+    <link rel="stylesheet" href="styles.css?v=4" />
+
+    <!-- jQuery just makes AJAX so much easier -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <title>Spacepunch 13</title>
+  </head>
+
+  <body onload="onLoad();">
+    <header>
+      <h1 id="banner"><img src="fp-13-375.png" id="emblem" />SPACEPUNCH<strong class="red">13</strong></h1>
+    </header>
+    <main>
+      <div class="flex-container" id="stat-banner">
+        <div class="col stat-col">
+          <div class="row">
+            <h4 class="stat-label">GAMESTATE</h4>
+            <h1 class="stat" id="gamestate"></h1>
+          </div>
+          <div class="row">
+            <h4 class="stat-label">SHUTTLE</h4>
+            <h1 class="stat" id="shuttle"></h1>
+          </div>
+        </div>
+
+        <div class="col stat-col">
+          <div class="row">
+            <h4 class="stat-label">ROUND TIME</h4>
+            <h1 class="stat" id="round-time"></h1>
+          </div>
+          <div class="row">
+            <h4 class="stat-label">SHUTTLE TIME</h4>
+            <h1 class="stat" id="shuttle-time"></h1>
+          </div>
+        </div>
+
+        <div class="col stat-col">
+          <div class="row">
+            <h4 class="stat-label">PLAYERS</h4>
+            <h1 class="stat blue" id="players"></h1>
+          </div>
+          <div class="row">
+            <h4 class="stat-label">MAP</h4>
+            <h1 class="stat red" id="map"></h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="refresh-button">
+        <i><a href="https://spacepunch.org">refresh</a></i>
+      </div>
+
+      <div id="join-button">
+        <a href="byond://spacepunch.org:1337">BIG 'OL JOIN BUTTON</a>
+        <p id="url-ez-read"><i> byond://spacepunch.org:1337 </i></p>
+      </div>
+
+      <div class="flex-container" id="links-container">
+        <div class="col tooltip-container" id="forum-link">
+          <a>Forums</a>
+          <span class="tooltip red">Our forums are currently being developed</span>
+        </div>
+        <div class="col tooltip-container" id="discord-link">
+          <a href="https://discord.gg/YDwkP9g">DISCORD</a>
+          <span class="tooltip">Invite link to our discord</span>
+        </div>
+        <div class="col tooltip-container" id="wiki-link">
+          <a href="https://wiki.hippiestation.com/index.php/Main_Page">WIKI</a>
+          <span class="tooltip">Hippie's wiki b/c it already exists</span>
+        </div>
+        <div class="col tooltip-container" id="dev-link">
+          <a href="https://github.com/brushtool/fpstation">DEV</a>
+          <span class="tooltip">GITHUB</span>
+        </div>
+        <div class="col tooltip-container" id="stats-link">
+          <a href="https://stats.spacepunch.org/">STATS</a>
+          <span class="tooltip">Round staistics</span>
+        </div>
+      </div>
+
+      <!-- Old Link nav
+      <div id="links-container" class="flex-container">
+        <div class="tooltip-container col">
+          <a href="http://forums.spacepunch.org">Forums</a>
+          <span class="tooltip">Visit our foums</span>
+        </div>
+        <div class="tooltip-container col">
+          <a href="https://discord.gg/YDwkP9g">Discord</a>
+          <span class="tooltip">Invite link to our discord</span>
+        </div>
+        <div class="tooltip-container col">
+          <a href="https://wiki.hippiestation.com/index.php/Main_Page">Wiki</a>
+          <span class="tooltip">Hippie's wiki b/c it already exists</span>
+        </div>
+        <div class="tooltip-container col">
+          <a href="https://github.com/brushtool/fpstation">Dev</a>
+          <span class="tooltip">GITHUB</span>
+        </div>
+      </div>
+      -->
+    </main>
+
+    <script type="text/javascript">
+      //The formatting of this javascript is pretty sloppy so please just dont read it
+      //A lot of PCs running SS13 have outdated shit. Including my VM.
+      //So this means no ES6 and very explicit code.
+      function onLoad() {
+        var tooltips = document.getElementsByClassName('tooltip-container');
+
+        for (let i = 0; i < tooltips.length; i++) {
+          var tooltip = tooltips[i].getElementsByClassName('tooltip')[0];
+          var link = tooltips[i].getElementsByTagName('a')[0];
+
+          tooltip.style.left = tooltips[i].offsetWidth / 2 - tooltip.offsetWidth / 2 + 'px';
+        }
+
+        //Default values
+        $('#gamestate').html('--');
+        $('#shuttle').html('--');
+
+        $('#round-time').html('--:--');
+        $('#shuttle-time').html('--:--');
+
+        $('#players').html('--');
+        $('#map').html('--');
+
+        retrieveSetData();
+        setInterval(retrieveSetData, 2000);
+      }
+
+      function retrieveSetData() {
+        //AJAX SHIT
+        var serverData = null;
+        $.ajax({
+          url: 'serverdataformat.php',
+          method: 'POST',
+          dataType: 'json'
+        })
+          .done(function(stats) {
+            $('#gamestate').html(stats.gamestate);
+            $('#gamestate').attr('class', 'stat ' + stats.gamestateColor);
+            $('#shuttle').html(stats.shuttle);
+            $('#shuttle').attr('class', 'stat ' + stats.shuttleColor);
+
+            $('#round-time').html(stats.roundTime);
+            $('#shuttle-time').html(stats.shuttleTime);
+
+            $('#players').html(stats.players);
+            $('#map').html(stats.map);
+          })
+          .fail(function() {
+            $('main').html('<h1>Error connecting to server.</h1><h2 class="red">Try to refresh the page. If that doesn\'t help, contact somebody.</h2>');
+          });
+      }
+    </script>
+  </body>
+</html>
