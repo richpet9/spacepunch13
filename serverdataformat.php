@@ -1,4 +1,7 @@
 <?php 
+// This file is called every 2 seconds by the front end
+// It simply formats the raw information from the ping, 
+// and returns it in JSON for the frontend to use.
 
 include "serverdata.php";
 
