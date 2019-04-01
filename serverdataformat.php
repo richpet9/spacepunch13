@@ -71,7 +71,7 @@ switch ($serverdata["gamestate"]) {
       $shuttle_mode = "RECALLED";
       $shuttle_time = formatTime($serverdata["shuttle_timer"], false);
       $shuttle_color = "blue";
-    } else if ($serverdata["shuttle_mode"] == "error") {
+    } else if ($serverdata["shuttle_mode"] == "stranded") {
       $shuttle_mode = "ERROR";
       $shuttle_time = "--:--";
       $shuttle_color = "red";
