@@ -98,7 +98,7 @@ $output["shuttleTime"] = $shuttle_time;
 $output["players"] = $players;
 $output["map"] = $map;
 
-$output["raw"] = $variable_value_array;
+//$output["raw"] = $variable_value_array;
 
 //This file is AJAX'd so echo out some text
 //Fun fact: there's no method check, so go to 

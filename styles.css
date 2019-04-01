@@ -111,6 +111,34 @@ main {
   margin-bottom: 0;
 }
 
+#status-indicator {
+  text-align: left;
+  margin-bottom: 8px;
+  margin-left: 6px;
+}
+
+#connection-blinker {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  border-radius: 16px;
+  margin: 0 2px;
+  background: #232323;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+#connection-blinker.good {
+  background: #08b556;
+  box-shadow: 0px 0px 8px 0px rgba(8, 181, 86, 0.2);
+}
+
+#connection-blinker.error {
+  background: #cf505c;
+  box-shadow: 0px 0px 8px 0px rgba(181, 8, 8, 0.2);
+}
+
 #stat-banner {
   background: #232323;
 }
