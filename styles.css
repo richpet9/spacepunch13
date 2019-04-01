@@ -1,3 +1,4 @@
+/* Generic Selectors */
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
@@ -44,6 +45,14 @@ strong {
   font-weight: 800;
 }
 
+main {
+  width: 55%;
+  margin: 0 auto;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Object oriented CSS! */
 .green {
   color: #08b556 !important;
 }
@@ -54,35 +63,6 @@ strong {
 
 .blue {
   color: #2b72dd !important;
-}
-
-header {
-  width: 100%;
-  text-align: center;
-}
-
-#banner {
-  display: inline-block;
-  font-size: 84px;
-  font-weight: 300;
-  letter-spacing: -0.5px;
-  margin-top: -10px;
-  margin-bottom: 48px;
-  text-shadow: 3px 3px 0px #181818, 4px 4px 0px #181818, 5px 5px 0px #181818, 6px 6px 0px #181818, 7px 7px 0px #181818, 8px 8px 0px #181818, 9px 9px 0px #181818;
-}
-
-#emblem {
-  position: relative;
-  top: 40px;
-  width: 128px;
-  margin-right: 16px;
-}
-
-main {
-  width: 55%;
-  margin: 0 auto;
-  white-space: nowrap;
-  text-align: center;
 }
 
 .flex-container {
@@ -111,15 +91,38 @@ main {
   margin-bottom: 0;
 }
 
+/* Specific Rules */
+header {
+  width: 100%;
+  text-align: center;
+}
+
+#banner {
+  display: inline-block;
+  font-size: 84px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  margin-top: -15px;
+  margin-bottom: 40px;
+  text-shadow: 3px 3px 0px #181818, 4px 4px 0px #181818, 5px 5px 0px #181818, 6px 6px 0px #181818, 7px 7px 0px #181818, 8px 8px 0px #181818, 9px 9px 0px #181818;
+}
+
+#emblem {
+  position: relative;
+  top: 40px;
+  width: 128px;
+  margin-right: 16px;
+}
+
 #status-indicator {
   text-align: left;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   margin-left: 6px;
 }
 
 #connection-blinker {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   display: inline-block;
   position: relative;
   top: 2px;
@@ -271,6 +274,7 @@ main {
   background: #2b72dd;
 }
 
+/* Tooltip styling */
 .tooltip-container a {
   position: relative;
   z-index: 1;
@@ -352,6 +356,13 @@ main {
 
   #links-container .col {
     width: 25%;
+  }
+
+  #connection-blinker {
+    width: 18px;
+    height: 18px;
+    top: 1px;
+    margin-left: 2px;
   }
 }
 
