@@ -5,7 +5,7 @@
 
 include "serverdata.php";
 
-global $variable_value_array; 
+global $variable_value_array;
 
 $serverdata = $variable_value_array;
 
@@ -27,13 +27,13 @@ switch ($serverdata["gamestate"]) {
     break;
   case 0:
   case 1:
-  $gamestate = "LOBBY";
-  $gamestate_color = "blue";
-  $shuttle_mode = "IDLE";
-  $shuttle_time = "--:--";
-  $shuttle_color = "blue";
-  $round_time = 60 - $serverdata["round_duration"];
-  break;
+    $gamestate = "LOBBY";
+    $gamestate_color = "blue";
+    $shuttle_mode = "IDLE";
+    $shuttle_time = "--:--";
+    $shuttle_color = "blue";
+    $round_time = 60 - $serverdata["round_duration"];
+    break;
   case 2:
     $gamestate = "LOBBY";
     $gamestate_color = "blue";
@@ -130,4 +130,4 @@ function formatTime($seconds_input, $show_hour)
     return $minutes . ":" . $seconds;
   }
 }
- 
+
