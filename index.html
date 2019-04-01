@@ -19,10 +19,6 @@
       <h1 id="banner"><img src="fp-13-375.png" id="emblem" />SPACEPUNCH<strong class="red">13</strong></h1>
     </header>
     <main>
-      <div class="stat-label" id="status-indicator">
-        CONNECTION
-        <div id="connection-blinker"></div>
-      </div>
       <div class="flex-container" id="stat-banner">
         <div class="col stat-col">
           <div class="row">
@@ -142,7 +138,6 @@
 
       function retrieveSetData() {
         //AJAX
-        $('#connection-blinker').attr('class', '');
         var serverData = null;
         $.ajax({
           url: 'serverdataformat.php',
@@ -161,12 +156,9 @@
 
             $('#players').html(stats.players);
             $('#map').html(stats.map);
-
-            $('#connection-blinker').attr('class', 'good');
           })
           .fail(function() {
             //The connection to PHP could not be made
-            $('#connection-blinker').attr('class', 'error');
             $('#gamestate').html('Retrieving...');
             $('#shuttle').html('--');
 
