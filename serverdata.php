@@ -7,9 +7,9 @@ $error = false;
 
 $server_info = array();
 $server_info["name"] = "Spacepunch Station";
-$server_info["addr"] = "spacepunch.org";
+//$server_info["addr"] = "spacepunch.org";
 //Uncomment when on local game machine
-//$server_info["addr"] = "localhost";
+$server_info["addr"] = "localhost";
 $server_info["port"] = 1337;
 
 function export($addr, $port, $str)
