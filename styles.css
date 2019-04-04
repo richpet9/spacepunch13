@@ -196,7 +196,7 @@ header {
   z-index: 4;
 }
 
-#links-container .col::after {
+#links-container .col a::after {
   content: '';
   display: block;
   width: 100%;
@@ -212,7 +212,7 @@ header {
   color: white;
 }
 
-#links-container .col:hover::after {
+#links-container .col a:hover::after {
   opacity: 0.16;
 }
 
