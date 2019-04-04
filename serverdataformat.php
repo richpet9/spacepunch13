@@ -130,4 +130,3 @@ function formatTime($seconds_input, $show_hour)
     return $minutes . ":" . $seconds;
   }
 }
-
