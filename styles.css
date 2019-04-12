@@ -217,18 +217,8 @@ header {
 }
 
 #forum-link {
-  background: #303030;
+  background: #cf505c;
 }
-
-/* These are here bc forums is error */
-#forum-link a {
-  opacity: 0.5;
-  cursor: not-allowed !important;
-}
-#forum-link:hover::after {
-  opacity: 0 !important;
-}
-/* * * * * * */
 
 #discord-link {
   background: #2b72dd;

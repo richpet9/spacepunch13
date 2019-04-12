@@ -1,4 +1,4 @@
-<?php 
+<?php
 // This file is called every 2 seconds by the front end
 // It simply formats the raw information from the ping, 
 // and returns it in JSON for the frontend to use.
@@ -32,7 +32,7 @@ switch ($serverdata["gamestate"]) {
     $shuttle_mode = "IDLE";
     $shuttle_time = "--:--";
     $shuttle_color = "blue";
-    $round_time = 60 - $serverdata["round_duration"];
+    $round_time = 120 - $serverdata["round_duration"];
     break;
   case 2:
     $gamestate = "LOBBY";
