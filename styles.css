@@ -236,6 +236,56 @@ header {
   background: #2b72dd;
 }
 
+#rules-container {
+  background: #232323;
+  white-space: normal;
+  margin-bottom: 72px;
+}
+
+#rules-container #rules-header {
+  text-align: left;
+  background: #1f1f1f;
+}
+
+#rules-container #rules-header a {
+  display: inline-block;
+  padding: 8px;
+  background: #cf505c;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+#rules-container #rules-list {
+  text-align: left;
+  padding: 8px;
+  margin-left: 40px;
+  list-style: none;
+  counter-reset: counter;
+}
+
+#rules-container #rules-list .rule {
+  display: block;
+  line-height: 120%;
+  margin-bottom: 10px;
+  counter-increment: counter;
+  position: relative;
+}
+
+#rules-container #rules-list .rule::before {
+  content: counter(counter);
+  color: #cf505c;
+  font-weight: bold;
+  position: absolute;
+  left: -24px;
+  font-size: 20px;
+}
+
+#rules-container #rules-list .rule:nth-child(n + 10)::before {
+  left: -36px;
+}
+
 /* Tooltip styling */
 .tooltip-container a {
   position: relative;
