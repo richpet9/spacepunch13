@@ -15,7 +15,7 @@ function export($addr, $port, $str)
 {
   global $error;
   // All queries must begin with a question mark (ie "?players")
-  if ($str {
+  if ($str{
     0} != '?') $str = ('?' . $str);
 
   /* --- Prepare a packet to send to the server (based on a reverse-engineered packet structure) --- */
@@ -48,32 +48,32 @@ function export($addr, $port, $str)
   socket_close($server); // we don't need this anymore
 
   if ($result != "") {
-    if ($result {
-      0} == "\x00" || $result {
+    if ($result{
+      0} == "\x00" || $result{
       1} == "\x83") { // make sure it's the right packet format
 
       // Actually begin reading the output:
-      $sizebytes = unpack('n', $result {
-        2} . $result {
+      $sizebytes = unpack('n', $result{
+        2} . $result{
         3}, 0); // array size of the type identifier and content
       $size = $sizebytes[1] - 1; // size of the string/floating-point (minus the size of the identifier byte)
 
-      if ($result {
+      if ($result{
         4} == "\x2a") { // 4-byte big-endian floating-point
-        $unpackint = unpack('f', $result {
-          5} . $result {
-          6} . $result {
-          7} . $result {
+        $unpackint = unpack('f', $result{
+          5} . $result{
+          6} . $result{
+          7} . $result{
           8}, 0); // 4 possible bytes: add them up together, unpack them as a floating-point
         return $unpackint[1];
-      } else if ($result {
+      } else if ($result{
         4} == "\x06") { // ASCII string
         $unpackstr = ""; // result string
         $index = 5; // string index
 
         while ($size > 0) { // loop through the entire ASCII string
           $size--;
-          $unpackstr .= $result {
+          $unpackstr .= $result{
             $index}; // add the string position to return string
           $index++;
         }
